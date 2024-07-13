@@ -1,3 +1,5 @@
+# poetry export --without-hashes --format=requirements.txt > requirements.txt
+
 annotated-types==0.7.0 ; python_full_version == "3.12.2"
 anyio==4.4.0 ; python_full_version == "3.12.2"
 certifi==2024.7.4 ; python_full_version == "3.12.2"
