@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 
-# import uvicorn
 
 app = FastAPI()
 
@@ -10,5 +9,8 @@ async def root():
     return {"message": "hello world"}
 
 
-# if __name__ == "__main__":
-#     uvicorn.run(app)
+@app.get("/blog/{slug}")
+async def blog(slug: int):
+    return {"message": slug}
+
+
