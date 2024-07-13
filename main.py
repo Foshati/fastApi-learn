@@ -1,4 +1,5 @@
-from fastapi import Body, FastAPI
+from typing import Annotated
+from fastapi import Body, Depends, FastAPI
 from pydantic import BaseModel
 
 
@@ -29,3 +30,14 @@ async def blogPrivate(slug: int, is_private: bool = False):
 @app.post("/blog/create")
 async def blogCreate(post: createPostIn):
     return post
+
+
+# Dependency Injection in fastAPI
+# q: Union[str, None] = None
+async def help_params(q: str | None = None, limit: int = 20):
+    return {"query": q, "limitQuery": limit}
+
+
+@app.get("/items")
+async def reade_items(allItems: Annotated[dict, Depends(help_params)]):
+    return allItems
