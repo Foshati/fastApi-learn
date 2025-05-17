@@ -11,5 +11,5 @@ def root():
 
 
 @app.get("/home/{name}/{age}")
-def info(name, age):
-    return {"message" : f "{name} is {age} old" }
+def info(name: str, age :int):
+    return {"message" : f"{name} is {age} old" }
